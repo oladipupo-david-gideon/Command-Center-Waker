@@ -1,0 +1,19 @@
+name: Keep Render API Alive
+
+on:
+  schedule:
+    # Run every 14 minutes (Render sleeps after 15 mins)
+    - cron: '*/14 * * * *'
+  workflow_dispatch: # Allows manual testing
+
+jobs:
+  ping_api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping API
+        run: |
+          # Replace this URL with your Render API URL
+          curl -I https://e-plant-api.onrender.com/api/plants
+          
+          # The -I flag just asks for the headers (super fast/lightweight).
+          # It tells Render "Hey, someone is here," resetting the timer.
