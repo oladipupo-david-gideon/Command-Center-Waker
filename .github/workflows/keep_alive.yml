@@ -1,0 +1,26 @@
+name: Wake Streamlit Apps
+
+on:
+  schedule:
+    # Runs at minute 0 past every 2nd hour (e.g., 2:00, 4:00, 6:00...)
+    - cron: "0 */2 * * *"
+  workflow_dispatch: # Allows you to click a button to run it manually
+
+jobs:
+  wake_jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Selenium
+        # We install selenium directly here to keep things simple
+        run: pip install selenium
+
+      - name: Run Wake Script
+        run: python wake_up.py
