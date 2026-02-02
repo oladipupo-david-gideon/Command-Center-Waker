@@ -18,9 +18,9 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Install Selenium
-        # We install selenium directly here to keep things simple
-        run: pip install selenium
+      - name: Install Dependencies
+        # Installs selenium and webdriver-manager (required for the new script)
+        run: pip install selenium webdriver-manager
 
       - name: Run Wake Script
         run: python wake_up.py
