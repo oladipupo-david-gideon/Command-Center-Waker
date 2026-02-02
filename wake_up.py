@@ -1,6 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 
 # ----------------------------------------
@@ -15,11 +17,14 @@ app_urls = [
 # 2. THE REST IS AUTOMATIC
 # ----------------------------------------
 chrome_options = Options()
-chrome_options.add_argument("--headless")
+# Updated to the new headless mode for stability
+chrome_options.add_argument("--headless=new") 
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--disable-dev-shm-usage")
 
-driver = webdriver.Chrome(options=chrome_options)
+# Automatically install the matching driver for the current Chrome version
+service = Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=service, options=chrome_options)
 
 print(f"Starting wake-up cycle for {len(app_urls)} apps...")
 
