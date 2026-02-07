@@ -6,7 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 
 # ----------------------------------------
-# 1. EDIT THIS LIST WITH YOUR APP URLS
+# 1. EDIT THIS LIST WITH APP URLS
 # ----------------------------------------
 app_urls = [
     "https://oladipupo-david-compounder-app.streamlit.app/",
