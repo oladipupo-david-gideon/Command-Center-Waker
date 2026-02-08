@@ -4,7 +4,8 @@ import requests
 # ADD RENDER URL(S) HERE
 # ----------------------------------------
 render_apps = [
-    "https://e-plant-api.onrender.com", 
+    "https://e-plant-api.onrender.com",
+    "https://e-plant-api.onrender.com/api/plants",
 ]
 
 print(f"Pinging {len(render_apps)} Render apps...")
